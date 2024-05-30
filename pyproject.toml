@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "asonam-osint"
+version = "0.1.0"
+description = ""
+authors = ["barbamento <lorenzo.alvisi@studio.unibo.it>"]
+readme = "README.md"
+packages = [{include = "asonam_osint"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+geopy = "^2.4.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
