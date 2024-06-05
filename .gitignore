@@ -1,0 +1,4 @@
+Dataset/*
+*.pyc
+Secrets/*
+*.csv
