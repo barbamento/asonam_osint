@@ -4,14 +4,12 @@ import time
 import copy
 import os
 
-from tqdm import tqdm
-
 from Code.GeoData.GeoGuesser import GeoGeusser
 
 
 if __name__ == "__main__":
-    if os.path.exists("ProcessedData/locations.csv"):
-        info_csv = pd.read_csv("ProcessedData/locations.csv", index_col=False)
+    if os.path.exists("ProcessedData/locations_llava.csv"):
+        info_csv = pd.read_csv("ProcessedData/locations_llava.csv", index_col=False)
     else:
         info_csv = pd.read_csv("ProcessedData/location_with_states.csv")
         for i in [1, 2, 3]:
@@ -19,11 +17,13 @@ if __name__ == "__main__":
             info_csv[f"llava_x{i}"] = None
             info_csv[f"llava_y{i}"] = None
         info_csv["name_pic"] = info_csv["name_pic"] - 1
-        info_csv.to_csv("ProcessedData/locations.csv", index=False)
-        info_csv = pd.read_csv("ProcessedData/locations.csv", index_col=False)
+        info_csv.to_csv("ProcessedData/locations_llava.csv", index=False)
+        info_csv = pd.read_csv("ProcessedData/locations_llava.csv", index_col=False)
 
     ##llava part
     geoguess = GeoGeusser()
+    print(geoguess.locate_position_prompt)
+    exit()
 
     for n_row, row in info_csv.iterrows():
         row = copy.deepcopy(row)
@@ -61,6 +61,6 @@ if __name__ == "__main__":
                     time.sleep(5)
 
             # print(info_csv.loc[info_csv["name_pic"] == row["name_pic"], :])
-            info_csv.to_csv("ProcessedData/locations.csv", index=False)
+            info_csv.to_csv("ProcessedData/locations_llava.csv", index=False)
             print(f'{row["name_pic"]} done')
             # time.sleep(5)

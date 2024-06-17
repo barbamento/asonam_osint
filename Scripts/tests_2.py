@@ -13,6 +13,6 @@ prompt_geo = (
     "best predictionas a json list"
 )
 
-print(GeoGeusser().locate_position("Dataset/archive/dataset/0.png"))
+print(GeoGeusser().locate_position_llava("Dataset/archive/dataset/0.png"))
 
 # print(ll.call_test(prompt_geo, "Dataset/archive/dataset/0.png"))

@@ -2,3 +2,5 @@ Dataset/*
 *.pyc
 Secrets/*
 *.csv
+*.txt
+*.png
